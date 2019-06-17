@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <img id="receiver" style="width:1600px;height:900px"/>
+    <script type="text/javascript" charset="utf-8">
+ 
+        var receiver_socket = new WebSocket("ws://127.0.0.1:9501/face");
+ 
+        var image = document.getElementById('receiver');
+ 
+         // 监听消息
+ 
+        receiver_socket.onmessage = function(data)
+ 
+        {
+            console.log(data)
+            image.src = data.data;
+ 
+        }
+ 
+    </script>
+</body>
+</html>
